@@ -15,6 +15,16 @@
 
 ---
 
+<p align="center">
+  <img src="assets/workflow.gif" alt="gea-flow workflow / state machine example" width="720" />
+</p>
+
+<p align="center">
+  <em>Animated edges, custom node states, smooth transitions — see more on the <a href="https://gea-flow.com/examples">examples page</a>.</em>
+</p>
+
+---
+
 `gea-flow` is a node editor library for [Gea](https://geajs.com) built as a thin adapter on top of [`@xyflow/system`](https://github.com/xyflow/xyflow) — the framework-agnostic core that powers React Flow and Svelte Flow. It gives you draggable nodes, connectable handles, pan/zoom, selection, a minimap, and customizable rendering, while staying fully reactive with Gea's compile-time bindings.
 
 For complete documentation, examples, and API reference, visit **[gea-flow.com/docs](https://gea-flow.com/docs)**.
