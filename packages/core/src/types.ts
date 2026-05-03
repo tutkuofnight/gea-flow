@@ -14,10 +14,14 @@ export type GeaNodeData = Record<string, unknown>
 export interface GeaNode<TData extends GeaNodeData = GeaNodeData>
   extends Omit<NodeBase<TData>, 'measured'> {
   measured?: { width: number; height: number }
+  /** Extra CSS class string appended to the rendered .gea-flow__node element. */
+  className?: string
 }
 
 export interface GeaEdge extends EdgeBase {
   label?: string | number
+  /** Extra CSS class string appended to the rendered .gea-flow__edge element. */
+  className?: string
 }
 
 /** Single handle measurement, node-local coordinates. */

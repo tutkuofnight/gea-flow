@@ -10,7 +10,7 @@ export default function Header() {
           <Link class="nav__link" to="/">Home</Link>
           <Link class="nav__link" to="/examples">Examples</Link>
           <Link class="nav__link" to="/docs">Docs</Link>
-          <a class="btn btn--outlined" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn--outlined" href="https://github.com/tutkuofnight/gea-flow" target="_blank" rel="noopener">GitHub</a>
         </nav>
       </div>
     </header>
