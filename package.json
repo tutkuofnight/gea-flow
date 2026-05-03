@@ -1,0 +1,21 @@
+{
+  "name": "gea-flow-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React Flow-style node editor library for the Gea framework",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @gea-flow/examples",
+    "build": "npm run build -w @gea-flow/core",
+    "build:all": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.59.1"
+  }
+}

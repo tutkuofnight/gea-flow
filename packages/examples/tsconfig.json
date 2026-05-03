@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "../../node_modules/.pnpm/@geajs+vite-plugin@1.3.1_vite@8.0.10/node_modules/@geajs/vite-plugin/gea-env.d.ts"
+  ]
+}

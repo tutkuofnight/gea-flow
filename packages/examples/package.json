@@ -1,0 +1,21 @@
+{
+  "name": "@gea-flow/examples",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@gea-flow/core": "*",
+    "@geajs/core": "^1.3.0"
+  },
+  "devDependencies": {
+    "@geajs/vite-plugin": "^1.3.1",
+    "typescript": "^5.6.0",
+    "vite": "^8.0.0"
+  }
+}

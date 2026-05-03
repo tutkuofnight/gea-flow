@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "gea-framework": {
+      "source": "dashersw/gea",
+      "sourceType": "github",
+      "skillPath": ".cursor/skills/gea-framework/SKILL.md",
+      "computedHash": "75be8e12557cec6cf3d063c640715413ecedb36a377606cdbf1cf0cc14834c02"
+    },
+    "gea-ui-components": {
+      "source": "dashersw/gea",
+      "sourceType": "github",
+      "skillPath": ".cursor/skills/gea-ui-components/SKILL.md",
+      "computedHash": "0aa474aca070d704025107e54294549203a10f095aadf99218096f473b27c332"
+    },
+    "playground-browser-bundles": {
+      "source": "dashersw/gea",
+      "sourceType": "github",
+      "skillPath": ".cursor/skills/playground-browser-bundles/SKILL.md",
+      "computedHash": "8480463c3f8238dffc9a1bf2392587f2bbfab1f67b9c13c2cb394fddb7faa0d0"
+    },
+    "react-to-gea-migration": {
+      "source": "dashersw/gea",
+      "sourceType": "github",
+      "skillPath": ".cursor/skills/react-to-gea-migration/SKILL.md",
+      "computedHash": "555287d02356ff3d0b3352b1989f58a5fa184be28c8e1b046bb5d36b23bc2033"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+.gea-flow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fafafa;
+  /* Subtle CSS fallback dot pattern for when no <Background /> is used. */
+  background-image: radial-gradient(circle, #e6e6e6 1px, transparent 1px);
+  background-size: 20px 20px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+}
+
+.gea-flow__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gea-flow__controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  z-index: 5;
+}
+.gea-flow__controls-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  padding: 0;
+}
+.gea-flow__controls-btn:last-child { border-bottom: none; }
+.gea-flow__controls-btn:hover { background: #f5f5f5; color: #111; }
+.gea-flow__controls-btn:active { background: #ebebeb; }
+
+.gea-flow__minimap {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+  cursor: grab;
+}
+.gea-flow__minimap:active { cursor: grabbing; }
+
+.gea-flow__selection-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid #3b82f6;
+  pointer-events: none;
+  will-change: transform, width, height;
+}
+
+.gea-flow__viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 1;
+}
+
+.gea-flow__nodes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gea-flow__node {
+  position: absolute;
+  pointer-events: all;
+  cursor: grab;
+  will-change: transform;
+}
+
+.gea-flow__node:active,
+.gea-flow__node.dragging {
+  cursor: grabbing;
+}
+
+.gea-flow__default-node {
+  position: relative;
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #1a192b;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #222;
+  min-width: 100px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.gea-flow__handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 1.5px solid #1a192b;
+  border-radius: 50%;
+  cursor: crosshair;
+  pointer-events: all;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+}
+.gea-flow__handle:hover {
+  background: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+.gea-flow__handle-top    { top: -5px;    left: 50%; transform: translateX(-50%); }
+.gea-flow__handle-top:hover    { transform: translateX(-50%) scale(1.4); }
+.gea-flow__handle-bottom { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.gea-flow__handle-bottom:hover { transform: translateX(-50%) scale(1.4); }
+.gea-flow__handle-left   { left: -5px;   top: 50%;  transform: translateY(-50%); }
+.gea-flow__handle-left:hover   { transform: translateY(-50%) scale(1.4); }
+.gea-flow__handle-right  { right: -5px;  top: 50%;  transform: translateY(-50%); }
+.gea-flow__handle-right:hover  { transform: translateY(-50%) scale(1.4); }
+
+.gea-flow__edges {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+.gea-flow__edge {
+  pointer-events: visiblePainted;
+  cursor: pointer;
+}
+.gea-flow__edge-hit {
+  pointer-events: stroke;
+}
+.gea-flow__edge.selected .gea-flow__edge-path {
+  stroke: #3b82f6;
+  stroke-width: 2.5;
+}
+.gea-flow__edge-path.animated {
+  stroke-dasharray: 5 4;
+  animation: gea-flow__edge-flow 0.6s linear infinite;
+}
+@keyframes gea-flow__edge-flow {
+  to { stroke-dashoffset: -9; }
+}
+.gea-flow__node.selected .gea-flow__default-node {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
