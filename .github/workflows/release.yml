@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write   # to create the GitHub Release
+  id-token: write   # to publish to npm with provenance
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so release notes can diff against the previous tag
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build core
+        run: npm run build -w @gea-flow/core
+
+      - name: Pack tarball
+        run: npm pack -w @gea-flow/core
+        # Drops something like gea-flow-core-0.0.3.tgz at the repo root.
+
+      - name: Publish to npm
+        if: ${{ env.NPM_TOKEN != '' }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish -w @gea-flow/core --provenance --access public
+        # Idempotency: if the version is already on npm this fails with E409.
+        # Bump the version (npm version patch/minor/major) before tagging.
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: gea-flow-core-*.tgz
+          fail_on_unmatched_files: true
