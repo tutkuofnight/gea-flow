@@ -3,11 +3,13 @@
   "compilerOptions": {
     "noEmit": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "node"
     ]
   },
   "include": [
     "src/**/*",
+    "vite.config.ts",
     "../../node_modules/@geajs/vite-plugin/gea-env.d.ts"
   ]
 }
